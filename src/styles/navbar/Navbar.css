@@ -23,7 +23,7 @@
     height: 42px;
     padding: 6px 8px;
     border:1px solid var(--box-border);
-    border-radius:16px;
+    border-radius:14px;
     background: #ffffff;
     }
   .prfec-logo {
@@ -39,7 +39,7 @@
     height: 42px;
     padding: 6px 28px;
     border:1px solid var(--box-border);
-    border-radius:16px;
+    border-radius:14px;
     background-color: #ffffff;
     font-size: 16px;
     font-family: var(--p-font);
@@ -57,7 +57,7 @@
     height: 42px;
     padding: 6px 28px;
     border:1px solid var(--box-border);
-    border-radius:16px;
+    border-radius:14px;
     background-color: var(--prfec-clr);
     font-size: 16px;
     font-family: var(--p-font);
@@ -110,4 +110,9 @@
         justify-content: center;
         align-items: center;
     }
+}
+@media only screen and (max-width:600px){
+  .navbar-container{
+    width: 90%;
+  }
 }

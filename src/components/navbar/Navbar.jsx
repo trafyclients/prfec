@@ -25,8 +25,8 @@ export const Navbar = () => {
             </div>
 
             <div className='navbar-contents'>
-                <button className='navbar-login'>Log in</button>
-                <button className='navbar-signup'>Sign up</button>
+                <Link href="/login" className='navbar-login'>Log in</Link>
+                <Link href="/signup" className='navbar-signup'>Sign up</Link>
             </div>
 
             <div className='navbar-menu-icons'>
@@ -35,8 +35,8 @@ export const Navbar = () => {
             </div>
 
             {menuOpen && <div className='navbar-menu'>
-                <button className='navbar-login'>Log in</button>
-                <button className='navbar-signup'>Sign up</button>
+                <Link href="/login" className='navbar-login'>Log in</Link>
+                <Link href="/signup" className='navbar-signup'>Sign up</Link>
               </div> 
             }  
         </div>
