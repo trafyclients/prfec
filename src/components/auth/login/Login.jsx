@@ -87,7 +87,7 @@ const Login = () => {
             });
 
 
-            // router.push('/');
+            router.push('/');
             // router.back();
 
             // router.push('/');
@@ -120,7 +120,7 @@ const Login = () => {
             });
 
 
-            // router.back();
+            router.push('/');   
 
         } catch (err) {
             if (err.code === 'auth/cancelled-popup-request') {
