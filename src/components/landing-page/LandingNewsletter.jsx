@@ -41,7 +41,7 @@ export const LandingNewsletter = () => {
 
     try {
       // Send the email to Firebase Realtime Database
-      const response = await fetch('https://landingpage-formdata-default-rtdb.firebaseio.com/landingpage-formdata.json', {
+      const response = await fetch('https://landingpage-newsletter-beab3-default-rtdb.firebaseio.com/newsletter.json', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
