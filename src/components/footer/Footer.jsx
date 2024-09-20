@@ -1,10 +1,10 @@
 import React from 'react'
 import '@styles/footer/Footer.css'
 import Image from 'next/image'
-import facebookWhite from '@public/images/footer/facebook-white.png';
-import xWhite from '@public/images/footer/x-white.png';
-import Instagram from '@public/images/footer/instagram-white.png'
-import Linkedin from '@public/images/footer/linkedin-white.png'
+import facebookWhite from '@public/Images/footer/facebook-white.png';
+import xWhite from '@public/Images/footer/x-white.png';
+import Instagram from '@public/Images/footer/instagram-white.png'
+import Linkedin from '@public/Images/footer/linkedin-white.png'
 
 
 export const Footer = () => {
