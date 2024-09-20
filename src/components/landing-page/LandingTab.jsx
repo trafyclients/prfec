@@ -16,25 +16,25 @@ const tabContent = {
         ]
     },
     Email: {
-        heading: "Boost your outreach with personalized email campaigns",
+        heading: "Increase your organic traffic with fully enabled Search Engine Optimization",
         features: [
-            "Automated Campaigns",
-            "A/B Testing",
-            "Email Tracking",
-            "List Segmentation",
-            "Custom Templates"
+            "Keyword Research",
+            "Content Generation",
+            "Back-linking",
+            "Technical SEO",
+            "Local SEO"
         ]
     },
-    Social: {
-        heading: "Engage your audience with powerful social media strategies",
+   Marketing: {
+        heading: "Increase your organic traffic with fully enabled Search Engine Optimization",
         features: [
-            "Content Scheduling",
-            "Ad Management",
-            "Influencer Marketing",
-            "Performance Analytics",
-            "Cross-Platform Posting"
+            "Keyword Research",
+            "Content Generation",
+            "Back-linking",
+            "Technical SEO",
+            "Local SEO"
         ]
-    }
+    },
 };
 
 const tabs = Object.keys(tabContent);
