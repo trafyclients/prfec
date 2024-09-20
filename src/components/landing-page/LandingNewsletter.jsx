@@ -69,7 +69,7 @@ export const LandingNewsletter = () => {
     if (showPopup) {
       const timer = setTimeout(() => {
         setShowPopup(false);
-      }, 8000);
+      }, 3000);
 
       return () => clearTimeout(timer); // Cleanup timer when component unmounts or popup is dismissed
     }
@@ -138,6 +138,8 @@ const popupStyle = {
   justifyContent: 'space-between',
   gap:'1rem',
   alignItems: 'center',
+  fontFamily:"Lato"
+
 };
 
 // Inline styles for close button

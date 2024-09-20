@@ -115,4 +115,7 @@
   .navbar-container{
     width: 90%;
   }
+  .navbar-login, .navbar-signup{
+    width: 100%;
+  }
 }

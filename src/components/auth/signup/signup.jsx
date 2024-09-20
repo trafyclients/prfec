@@ -169,7 +169,7 @@ const Signup = () => {
             <div className="signup-container">
                 <div className="signup-heading">
                     <h1>Create Your Account</h1>
-                    {generalError && <p style={{ color: "red", paddingBottom: "6px", textAlign: "center", fontSize: "13px", fontFamily: "Inter" }}>{generalError}</p>}
+                    {generalError && <p style={{ color: "red", paddingBottom: "6px", textAlign: "center", fontSize: "13px", fontFamily: "Lato" }}>{generalError}</p>}
                 </div>
                 <form className="form" onSubmit={handleSubmit}>
                     <Box component="div" className="email" noValidate autoComplete="off">
@@ -216,10 +216,10 @@ const Signup = () => {
                             Sign up with Google
                         </button>
                         <div>
-                            <p style={{ fontSize: "12px", lineHeight: "150%", fontFamily: "Inter", textAlign: "center", paddingTop: "12px" }}>
+                            <p style={{ fontSize: "12px", lineHeight: "150%", fontFamily: "Lato", textAlign: "center", paddingTop: "12px" }}>
                                 By signing up, you agree to our <Link href="/terms-of-service">Terms of services</Link> and <Link href="/privacy-policy">Privacy Policy</Link>.
                             </p>
-                            <p style={{ fontSize: "14px", fontFamily: "Inter", textAlign: "center", paddingTop: "12px" }}>
+                            <p style={{ fontSize: "14px", fontFamily: "Lato", textAlign: "center", paddingTop: "12px" }}>
                                 Already have an account? <Link href="/login">Login</Link>
                             </p>
                         </div>

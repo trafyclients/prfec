@@ -171,7 +171,7 @@ const Login = () => {
                                 ),
                             }}
                         />
-                        <div className="forgot-password" style={{ width: "100%", display: "flex", justifyContent: "end", fontSize: "12px", fontFamily: "Inter", paddingTop: "6px" }}>
+                        <div className="forgot-password" style={{ width: "100%", display: "flex", justifyContent: "end", fontSize: "12px", fontFamily: "Lato", paddingTop: "6px" }}>
                             <Link href="/forgot-password">Forgot Password?</Link>
                         </div>
                     </Box>
@@ -182,7 +182,7 @@ const Login = () => {
 
                     <div className="google-signin">
                         <button type="button" className="login-with-google-btn" onClick={handleGoogleSignIn}>Login with Google</button>
-                        <p style={{ fontFamily: "Inter", fontSize: "13px", paddingTop: "16px", textAlign: "center" }}>Dont have an account? <Link href="/signup">Sign up</Link></p>
+                        <p style={{ fontFamily: "Lato", fontSize: "13px", paddingTop: "16px", textAlign: "center" }}>Dont have an account? <Link href="/signup">Sign up</Link></p>
                     </div>
                 </form>
             </div>
