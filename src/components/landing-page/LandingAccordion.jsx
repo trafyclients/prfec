@@ -44,7 +44,7 @@
 import React, { useState } from 'react';
 import LandingAccordionData from '@data/LandingAccordionData';
 import Image from 'next/image';
-import arrowImage from '/Images/landing/accordion/arrow.png';
+import arrowImage from '@public/Images/landing/accordion/arrow.png';
 
 export const LandingAccordion = () => {
   const [activeIndex, setActiveIndex] = useState(null); // Track which accordion item is open
