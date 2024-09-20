@@ -1,8 +1,8 @@
 import React from 'react'
 import '@styles/footer/Footer.css'
 import Image from 'next/image'
-import Facebook from '@public/images/footer/facebook-white.png'
-import X from '@public/images/footer/x-white.png'
+import facebookWhite from '/images/footer/facebook-white.png';
+import xWhite from '/images/footer/x-white.png';
 import Instagram from '@public/images/footer/instagram-white.png'
 import Linkedin from '@public/images/footer/linkedin-white.png'
 
@@ -18,8 +18,8 @@ export const Footer = () => {
                 <p>Refund Policy</p>
             </div>
             <div className='footer-socials'>
-                <Image src={Facebook}/>
-                <Image src={X}/>
+                <Image src={facebookWhite}/>
+                <Image src={xWhite}/>
                 <Image src={Instagram}/>
                 <Image src={Linkedin}/>
             </div>

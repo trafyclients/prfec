@@ -44,7 +44,7 @@
 import React, { useState } from 'react';
 import LandingAccordionData from '@data/LandingAccordionData';
 import Image from 'next/image';
-import minus from '@public/images/landing/accordion/arrow.png';
+import arrowImage from '/images/landing/accordion/arrow.png';
 
 export const LandingAccordion = () => {
   const [activeIndex, setActiveIndex] = useState(null); // Track which accordion item is open
@@ -65,7 +65,7 @@ export const LandingAccordion = () => {
             <div className='landing-accordion-box' key={index}>
               <h3 onClick={() => toggleAccordion(index)} style={{ cursor: 'pointer' }}>
                 {item.title}
-                  <Image src={minus} alt="Collapse" />
+                  <Image src={arrowImage} alt="Collapse" />
               </h3>
             </div>
           ))}
