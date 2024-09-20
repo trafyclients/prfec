@@ -22,12 +22,22 @@ const LandingHero = () => {
     }
 
     try {
-      const emailRef = ref(database, 'landingpage-formdata');
-      await push(emailRef, { email });
+      // Sending email data to Firebase Realtime Database using a fetch request
+      const response = await fetch('https://landingpage-formdata-default-rtdb.firebaseio.com/landingpage-formdata.json', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
 
-      setIsSubmitted(true);
-      setEmail(''); // Clear input field
-      setError('');
+      if (response.ok) {
+        setIsSubmitted(true);
+        setEmail(''); // Clear input field
+        setError(''); // Clear any errors
+      } else {
+        throw new Error('Failed to submit');
+      }
     } catch (err) {
       console.error("Error saving data to Firebase", err);
       setError('Error submitting form. Please try again later.');

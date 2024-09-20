@@ -11,7 +11,7 @@ const firebaseConfig = {
   messagingSenderId: "349382070894",
   appId: "1:349382070894:web:afeef9e54ba4bb0ae2cc7f",
   measurementId: "G-42TLWVPDJB",
-  databaseURL: "https://landingpage-formdata-default-rtdb.firebaseio.com/",
+  databaseURL: "https://prfecai-auth-default-rtdb.firebaseio.com/",
 };
 
 const app = initializeApp(firebaseConfig);

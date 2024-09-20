@@ -28,7 +28,7 @@ const Signup = () => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 // Redirect if user is already logged in
-                // router.push('/'); // Redirect to home or another page
+                router.push('/'); // Redirect to home or another page
             } else {
                 setLoading(false); // Set loading to false when done
             }
@@ -156,10 +156,13 @@ const Signup = () => {
             console.error('Google Sign-In error:', error);
         }
     };
-
     const togglePasswordVisibility = () => {
         setShowPassword(prevShowPassword => !prevShowPassword);
     };
+
+    // if (loading) {
+    //     return <p>Loading...</p>; // Display loading state while checking authentication
+    // }
 
     return (
         <div className="signup">
