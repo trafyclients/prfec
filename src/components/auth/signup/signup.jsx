@@ -28,7 +28,7 @@ const Signup = () => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 // Redirect if user is already logged in
-                // router.push('/'); // Redirect to home or another page
+                router.push('/'); // Redirect to home or another page
             } else {
                 setLoading(false); // Set loading to false when done
             }
@@ -118,15 +118,34 @@ const Signup = () => {
             const provider = new GoogleAuthProvider();
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
-
+    
+            // Check if the user data already exists in the Firebase Realtime Database
             const userRef = ref(database, 'usersData/' + user.uid);
-            await set(userRef, {
-                uid: user.uid,
-                email: user.email,
-                firstName: user.email.split('@')[0],
-            });
-
-            console.log('Google Sign-In successful and user data stored:', user);
+            const snapshot = await get(userRef);
+            
+            if (snapshot.exists()) {
+                // User already exists, so fetch their data
+                const existingData = snapshot.val();
+                console.log('Existing user data:', existingData);
+                
+                // Load existing profile data (e.g., profile picture, phone number)
+                // You can set the data in your component state if needed
+                // setUserProfile(existingData); // Example: You might set this in a state
+    
+            } else {
+                // If the user doesn't exist, create a new entry
+                await set(userRef, {
+                    uid: user.uid,
+                    email: user.email,
+                    firstName: user.email.split('@')[0],
+                    // Add any default values like profile pic or phone number if needed
+                    profilePic: null,
+                    phoneNumber: null,
+                });
+                console.log('New user created and data stored:', user);
+            }
+    
+            // Redirect user after successful sign-in
             router.back();
         } catch (error) {
             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
@@ -137,9 +156,8 @@ const Signup = () => {
             console.error('Google Sign-In error:', error);
         }
     };
-
     const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
+        setShowPassword(prevShowPassword => !prevShowPassword);
     };
 
     // if (loading) {

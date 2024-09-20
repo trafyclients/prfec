@@ -1,24 +1,24 @@
 "use client"
 
 import React, { useState, useEffect, useRef } from 'react';
-import { initializeApp, getApps } from 'firebase/app';
-import { getDatabase } from 'firebase/database';
+// import { initializeApp, getApps } from 'firebase/app';
+// import { getDatabase } from 'firebase/database';
 
 // Firebase configuration for Realtime Database URL
-const firebaseConfig = {
-  apiKey: "AIzaSyDZRK3pQeYMQBx9yT4fPU_Lwjl8V67TtVs",
-  authDomain: "bioscholar-auth.firebaseapp.com",
-  databaseURL: "https://bioscholar-data-default-rtdb.firebaseio.com/", // Specify your database URL here
-  projectId: "bioscholar-auth",
-  storageBucket: "bioscholar-auth.appspot.com",
-  messagingSenderId: "1015150112218",
-  appId: "1:1015150112218:web:aa2751b9d78ea6ae0324e3",
-  measurementId: "G-8LR2YCHQ7F"
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDZRK3pQeYMQBx9yT4fPU_Lwjl8V67TtVs",
+//   authDomain: "bioscholar-auth.firebaseapp.com",
+//   databaseURL: "https://bioscholar-data-default-rtdb.firebaseio.com/", // Specify your database URL here
+//   projectId: "bioscholar-auth",
+//   storageBucket: "bioscholar-auth.appspot.com",
+//   messagingSenderId: "1015150112218",
+//   appId: "1:1015150112218:web:aa2751b9d78ea6ae0324e3",
+//   measurementId: "G-8LR2YCHQ7F"
+// };
 
-// Initialize Firebase app and database if not already initialized
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
-const database = getDatabase(app); // Initialize Realtime Database
+// // Initialize Firebase app and database if not already initialized
+// const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
+// const database = getDatabase(app); // Initialize Realtime Database
 
 export const LandingNewsletter = () => {
   const [email, setEmail] = useState('');
@@ -41,7 +41,7 @@ export const LandingNewsletter = () => {
 
     try {
       // Send the email to Firebase Realtime Database
-      const response = await fetch('https://bioscholar-data-default-rtdb.firebaseio.com/newsletterSubscriptions.json', {
+      const response = await fetch('https://landingpage-formdata-default-rtdb.firebaseio.com/landingpage-formdata.json', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
