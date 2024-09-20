@@ -1,8 +1,8 @@
 import React from 'react'
 import '@styles/footer/Footer.css'
 import Image from 'next/image'
-import facebookWhite from '/images/footer/facebook-white.png';
-import xWhite from '/images/footer/x-white.png';
+import facebookWhite from '@public/images/footer/facebook-white.png';
+import xWhite from '@public/images/footer/x-white.png';
 import Instagram from '@public/images/footer/instagram-white.png'
 import Linkedin from '@public/images/footer/linkedin-white.png'
 
