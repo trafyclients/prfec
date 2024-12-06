@@ -45,7 +45,7 @@
 .course-enquiry-form-contents {
     position: relative;
     width: 450px;
-    background: var(--trafy-white);
+    background: var(--prfec-white);
     border-radius: 12px;
     padding: 32px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -59,7 +59,7 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: var(--trafy-black);
+    color: var(--prfec-black);
 }
 
 
@@ -70,7 +70,7 @@
     flex-direction: column;
     gap: 0.7rem;
     border-radius: 12px;
-    background-color: var(--trafy-white);
+    background-color: var(--prfec-white);
 }
 .enquiryform-heading{
 
@@ -170,16 +170,16 @@
     font-size: 16px;
     font-family: var(--p-font);
     font-weight: 400;
-    color: var(--trafy-white);
-    background-color: var(--trafy-black);
-    border: 1px solid var(--trafy-black);
+    color: var(--prfec-white);
+    background-color: var(--prfec-black);
+    border: 1px solid var(--prfec-black);
     border-radius: 8px;
     margin-top: 8px;
 }
 
 .course-enquiry-button:hover {
     background-color: inherit;
-    color: var(--trafy-black);
+    color: var(--prfec-black);
 }
 
 .error-message {
@@ -205,7 +205,7 @@
     font-weight: 400;
     border: 1px solid var(--box-border);
     border-radius: 8px;
-    background-color: var(--trafy-white);
+    background-color: var(--prfec-white);
     max-width: 100%;
     margin-top: 8px;
     color: var(--h-black);
@@ -229,7 +229,7 @@
     font-weight: 400;
     border: 1px solid var(--box-border);
     border-radius: 8px;
-    background-color: var(--trafy-white);
+    background-color: var(--prfec-white);
     margin-top: 8px;
     color: var(--p-black);
     appearance: none; /* Removes the default arrow in the select input */

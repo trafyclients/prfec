@@ -15,21 +15,6 @@ export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // useEffect(() => {
-    //     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-    //         setUser(currentUser);
-    //         setLoading(false);
-    //     });
-
-    //     return () => unsubscribe();
-    // }, []);
-
-    // const googleSignIn = async () => {
-    //     const provider = new GoogleAuthProvider();
-    //     const userCredential = await signInWithPopup(auth, provider);
-    //     setUser(userCredential.user);
-    //     return userCredential.user;
-    // };
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
@@ -143,6 +128,8 @@ export const AuthContextProvider = ({ children }) => {
             {!loading && children}
         </AuthContext.Provider>
     );
+
+    
 };
 
 export const UserAuth = () => {

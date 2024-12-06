@@ -1,20 +1,25 @@
 import '@styles/globals.css';
 import { Navbar } from '@components/navbar/Navbar';
 import { Footer } from '@components/footer/Footer';
+import { AuthContextProvider } from '@context/AuthContext';
+import ConditionalFooter from '@components/footer/ConditionalFooter';
+import ConditionalNavbar from '@components/navbar/ConditionalNavbar';
 
+// export const metadata = {
+//   title: "Prfec AI",
+//   description: "",
+// };
 
-export const metadata = {
-  title: "Prfec AI",
-  description: "",
-};
+export default function RootLayout({ children}) {
 
-export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Navbar/>
+        <AuthContextProvider>
+        <ConditionalNavbar /> 
         {children}
-        <Footer/>
+          <ConditionalFooter /> 
+        </AuthContextProvider>
       </body>
     </html>
   );

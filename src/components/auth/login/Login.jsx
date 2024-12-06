@@ -53,6 +53,83 @@ const Login = () => {
         setGeneralError(''); // Clear general error on change
     };
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     setGeneralError('');
+    //     setEmailError('');
+    //     setPasswordError('');
+    //     let valid = true;
+
+    //     if (!email || !validateEmail(email)) {
+    //         setEmailError('Invalid email address');
+    //         valid = false;
+    //     }
+
+    //     if (!password) {
+    //         setPasswordError('Password is required');
+    //         valid = false;
+    //     }
+
+    //     if (!valid) {
+    //         return;
+    //     }
+
+    //     try {
+    //         const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    //         const user = userCredential.user;
+
+    //         // Store user data in Firebase Realtime Database
+    //         const userRef = ref(database, 'usersData/' + user.uid);
+    //         await set(userRef, {
+    //             uid: user.uid,
+    //             email: user.email,
+    //             firstName: user.email.split('@')[0],
+    //         });
+
+
+    //         // router.push('/');
+    //         // router.back();
+
+    //         // router.push('/');
+
+    //     } catch (error) {
+    //         if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+    //             setGeneralError("Email or password is incorrect. Please try again");
+    //         } else {
+    //             setGeneralError("An error occurred. Please try again.");
+    //         }
+    //     }
+    // };
+
+    // const togglePasswordVisibility = () => {
+    //     setShowPassword(!showPassword);
+    // };
+
+    // const handleGoogleSignIn = async () => {
+    //     try {
+    //         const provider = new GoogleAuthProvider();
+    //         const result = await signInWithPopup(auth, provider);
+    //         const user = result.user;
+
+    //         // Store user data in Firebase Realtime Database
+    //         const userRef = ref(database, 'usersData/' + user.uid);
+    //         await set(userRef, {
+    //             uid: user.uid,
+    //             email: user.email,
+    //             firstName: user.email.split('@')[0],
+    //         });
+
+
+    //         // router.back();
+
+    //     } catch (err) {
+    //         if (err.code === 'auth/cancelled-popup-request') {
+    //             setGeneralError('Unable to get profile information from Google.');
+    //         } else if (err.code !== 'auth/popup-closed-by-user') {
+    //             setGeneralError(err.message);
+    //         }
+    //     }
+    // };
     const handleSubmit = async (e) => {
         e.preventDefault();
         setGeneralError('');
@@ -78,19 +155,31 @@ const Login = () => {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
 
-            // Store user data in Firebase Realtime Database
-            const userRef = ref(database, 'usersData/' + user.uid);
-            await set(userRef, {
-                uid: user.uid,
-                email: user.email,
-                firstName: user.email.split('@')[0],
+            const idtoken = await user.getIdToken();
+
+
+            const response = await fetch('http://localhost:5000/api/createSessionCookie', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ idToken: idtoken }),
             });
+    
+            const data = await response.json();
+    
+            if (data.success) {
+                // Store the session cookie in the browser
+                document.cookie = `authToken=${data.sessionCookie}; path=/; domain=.yourdomain.com`;
+                
+                // Set loginCompleted to true
+                setLoginCompleted(true); // Indicate login process is completed
 
-
-            // router.push('/');
-            // router.back();
-
-            // router.push('/');
+                // You can now redirect or perform other actions
+                router.push('/');
+            } else {
+                setGeneralError('Failed to create a session. Please try again.');
+            }
 
         } catch (error) {
             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
@@ -106,30 +195,38 @@ const Login = () => {
     };
 
     const handleGoogleSignIn = async () => {
+        setGeneralError('');
         try {
             const provider = new GoogleAuthProvider();
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
-
-            // Store user data in Firebase Realtime Database
-            const userRef = ref(database, 'usersData/' + user.uid);
-            await set(userRef, {
-                uid: user.uid,
-                email: user.email,
-                firstName: user.email.split('@')[0],
+    
+            const idToken = await user.getIdToken();
+    
+            const response = await fetch('http://localhost:5000/api/createSessionCookie', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ idToken }),
             });
-
-
-            // router.back();
-
+    
+            const data = await response.json();
+            if (data.success) {
+                document.cookie = `authToken=${data.sessionCookie}; path=/; domain=.yourdomain.com`;
+                router.push('/');
+            } else {
+                setGeneralError('Failed to create a session. Please try again.');
+            }
         } catch (err) {
             if (err.code === 'auth/cancelled-popup-request') {
                 setGeneralError('Unable to get profile information from Google.');
-            } else if (err.code !== 'auth/popup-closed-by-user') {
+            } else if (err.code === 'auth/popup-closed-by-user') {
+                setGeneralError('Popup was closed before completing sign-in.');
+            } else {
                 setGeneralError(err.message);
             }
         }
     };
+    
 
     return (
         <div className="login">
